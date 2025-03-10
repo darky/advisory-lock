@@ -55,6 +55,7 @@ export default (conString: string): CreateMutexFunction => {
 
     async function newClient(): Promise<pg.Client> {
       const client = new pg.Client({
+        application_name: name,
         connectionString: conString,
       });
       await client.connect();
